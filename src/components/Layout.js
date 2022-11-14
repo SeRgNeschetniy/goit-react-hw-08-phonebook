@@ -1,11 +1,14 @@
 import { Outlet } from 'react-router-dom';
 import { Suspense } from 'react';
+import NavBar from './NavBar/NavBar';
 
 export default function Layout() {
   return (
-    <Suspense fallback={null}>
-      <div>Layout</div>
-      <Outlet />
-    </Suspense>
+    <>
+      <NavBar />
+      <Suspense fallback={null}>
+        <Outlet />
+      </Suspense>
+    </>
   );
 }
