@@ -1,3 +1,4 @@
+import Contacts from 'pages/Contacts';
 import { lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Layout from './Layout';
@@ -13,6 +14,7 @@ export const App = () => {
           <Route index element={<Login />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/contacts" element={<Contacts />} />
         </Route>
       </Routes>
     </>

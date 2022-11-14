@@ -2,7 +2,7 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import BookOnlineOutlinedIcon from '@mui/icons-material/BookOnlineOutlined';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import Link from '@mui/material/Link';
@@ -37,10 +37,10 @@ export default function RegisterForm() {
         }}
       >
         <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-          <LockOutlinedIcon />
+          <BookOnlineOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          Sign up
+          Create your account
         </Typography>
         <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
           <Grid container spacing={2}>
@@ -83,7 +83,7 @@ export default function RegisterForm() {
             variant="contained"
             sx={{ mt: 3, mb: 2 }}
           >
-            Sign Up
+            Create account
           </Button>
           <Grid container justifyContent="flex-end">
             <Grid item>

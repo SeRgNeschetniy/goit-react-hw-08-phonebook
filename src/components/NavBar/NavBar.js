@@ -1,14 +1,13 @@
 import AppBar from '@mui/material/AppBar';
 import Typography from '@mui/material/Typography';
-import Link from '@mui/material/Link';
+
 import Toolbar from '@mui/material/Toolbar';
-import Button from '@mui/material/Button';
-import { useNavigate } from 'react-router-dom';
+
 import { useAuth } from 'hooks/useAuth';
 import UserMenu from 'components/UserMenu/UserMenu';
+import AuthMenu from 'components/AuthMenu/AuthMenu';
 
 export default function NavBar() {
-  const navigate = useNavigate();
   const { isLoggedIn } = useAuth();
 
   return (
@@ -19,46 +18,11 @@ export default function NavBar() {
       sx={{ borderBottom: theme => `1px solid ${theme.palette.divider}` }}
     >
       <Toolbar sx={{ flexWrap: 'wrap' }}>
-        <Typography variant="h3" color="inherit" noWrap sx={{ flexGrow: 1 }}>
+        <Typography variant="h4" color="inherit" noWrap sx={{ flexGrow: 1 }}>
           PhoneBook
         </Typography>
-        <nav>
-          <Link
-            variant="button"
-            color="text.primary"
-            href="#"
-            sx={{ my: 1, mx: 1.5 }}
-          >
-            Features
-          </Link>
-          <Link
-            variant="button"
-            color="text.primary"
-            href="#"
-            sx={{ my: 1, mx: 1.5 }}
-          >
-            Enterprise
-          </Link>
-          <Link
-            variant="button"
-            color="text.primary"
-            href="#"
-            sx={{ my: 1, mx: 1.5 }}
-          >
-            Support
-          </Link>
-        </nav>
-        <Button
-          onClick={() => {
-            navigate('/login');
-          }}
-          variant="outlined"
-          sx={{ my: 1, mx: 1.5 }}
-        >
-          Login
-        </Button>
 
-        {isLoggedIn ? <UserMenu /> : ''}
+        {isLoggedIn ? <UserMenu /> : <AuthMenu />}
       </Toolbar>
     </AppBar>
   );

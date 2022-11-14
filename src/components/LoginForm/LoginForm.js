@@ -2,7 +2,6 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import Link from '@mui/material/Link';
@@ -10,6 +9,7 @@ import Grid from '@mui/material/Grid';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { logIn } from 'redux/auth/auth-operations';
+import BookOnlineOutlinedIcon from '@mui/icons-material/BookOnlineOutlined';
 
 export default function LoginForm() {
   const dispatch = useDispatch();
@@ -38,10 +38,10 @@ export default function LoginForm() {
         }}
       >
         <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-          <LockOutlinedIcon />
+          <BookOnlineOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          Sign in
+          Log in to Phonebook
         </Typography>
         <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
           <TextField
