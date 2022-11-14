@@ -3,8 +3,14 @@ import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
 import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from 'hooks/useAuth';
+import UserMenu from 'components/UserMenu/UserMenu';
 
 export default function NavBar() {
+  const navigate = useNavigate();
+  const { isLoggedIn } = useAuth();
+
   return (
     <AppBar
       position="static"
@@ -42,9 +48,17 @@ export default function NavBar() {
             Support
           </Link>
         </nav>
-        <Button href="#" variant="outlined" sx={{ my: 1, mx: 1.5 }}>
+        <Button
+          onClick={() => {
+            navigate('/login');
+          }}
+          variant="outlined"
+          sx={{ my: 1, mx: 1.5 }}
+        >
           Login
         </Button>
+
+        {isLoggedIn ? <UserMenu /> : ''}
       </Toolbar>
     </AppBar>
   );

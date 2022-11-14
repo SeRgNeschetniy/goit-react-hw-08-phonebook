@@ -7,16 +7,25 @@ import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
+import { useDispatch } from 'react-redux';
+import { signUp } from 'redux/auth/auth-operations';
 
 export default function RegisterForm() {
-  const handleSubmit = event => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+  const dispatch = useDispatch();
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    dispatch(
+      signUp({
+        name: form.elements.name.value,
+        email: form.elements.email.value,
+        password: form.elements.password.value,
+      })
+    );
+    form.reset();
   };
+
   return (
     <Container component="main" maxWidth="xs">
       <Box
@@ -41,7 +50,7 @@ export default function RegisterForm() {
                 name="firstName"
                 required
                 fullWidth
-                id="firstName"
+                id="name"
                 label="First Name"
                 autoFocus
               />
