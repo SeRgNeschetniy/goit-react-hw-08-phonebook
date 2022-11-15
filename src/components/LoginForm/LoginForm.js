@@ -4,14 +4,12 @@ import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
-import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { logIn } from 'redux/auth/auth-operations';
 import BookOnlineOutlinedIcon from '@mui/icons-material/BookOnlineOutlined';
 
 export default function LoginForm() {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const handleSubmit = e => {
     e.preventDefault();

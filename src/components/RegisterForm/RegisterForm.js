@@ -5,7 +5,6 @@ import Box from '@mui/material/Box';
 import BookOnlineOutlinedIcon from '@mui/icons-material/BookOnlineOutlined';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
-import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
 import { useDispatch } from 'react-redux';
 import { signUp } from 'redux/auth/auth-operations';
