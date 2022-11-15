@@ -4,8 +4,6 @@ import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
-import Link from '@mui/material/Link';
-import Grid from '@mui/material/Grid';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { logIn } from 'redux/auth/auth-operations';
@@ -40,7 +38,7 @@ export default function LoginForm() {
         <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
           <BookOnlineOutlinedIcon />
         </Avatar>
-        <Typography component="h1" variant="h5">
+        <Typography component="h4" variant="h4">
           Log in to Phonebook
         </Typography>
         <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
@@ -72,7 +70,7 @@ export default function LoginForm() {
           >
             Sign In
           </Button>
-          <Grid container justifyContent="flex-end">
+          {/* <Grid container justifyContent="flex-end">
             <Grid item>
               <Link
                 onClick={() => {
@@ -83,7 +81,7 @@ export default function LoginForm() {
                 {"Don't have an account? Sign Up"}
               </Link>
             </Grid>
-          </Grid>
+          </Grid> */}
         </Box>
       </Box>
     </Container>

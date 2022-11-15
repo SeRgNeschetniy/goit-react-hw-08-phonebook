@@ -1,6 +1,7 @@
 import Container from '@mui/material/Container';
 import Alert from '@mui/material/Alert';
 import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
 
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -37,11 +38,18 @@ export default function Contacts() {
         {error && <Alert severity="error">Oops, something went wrong</Alert>}
 
         <FormAddContacts />
-
-        <h2>Contacts List</h2>
-        <Filter filter={filter} />
         {!isLoading && contacts.length > 0 && (
-          <PhoneBookList items={contacts} />
+          <>
+            <Typography
+              component="div"
+              variant="h5"
+              sx={{ textAlign: 'center', mb: 3, mt: 3 }}
+            >
+              Contacts List
+            </Typography>
+            <Filter filter={filter} />
+            <PhoneBookList items={contacts} />
+          </>
         )}
         {isLoading && <p>...loading</p>}
       </Box>

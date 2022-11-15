@@ -5,6 +5,7 @@ import TextField from '@mui/material/TextField';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addContact } from 'redux/contacts/operations';
+import Typography from '@mui/material/Typography';
 
 export default function ContactForm() {
   const dispatch = useDispatch();
@@ -49,6 +50,9 @@ export default function ContactForm() {
       }}
     >
       <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+        <Typography component="div" variant="h5" sx={{ textAlign: 'center' }}>
+          Add Contacts
+        </Typography>
         <TextField
           margin="normal"
           required
@@ -87,38 +91,5 @@ export default function ContactForm() {
         </Button>
       </Box>
     </Box>
-
-    // <ContactsWrapp>
-    //   <form onSubmit={handleSubmit}>
-    //     <div className="contacts__name">
-    //       <label htmlFor={nameId}>Name</label>
-    //       <input
-    //         id={nameId}
-    //         value={name}
-    //         onChange={handelChange}
-    //         type="text"
-    //         name="name"
-    //         pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-    //         title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-    //         required
-    //       />
-    //     </div>
-
-    //     <div className="contacts__phone">
-    //       <label htmlFor={numberId}>Number</label>
-    //       <input
-    //         id={numberId}
-    //         value={number}
-    //         onChange={handelChange}
-    //         type="tel"
-    //         name="number"
-    //         pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-    //         title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-    //         required
-    //       />
-    //     </div>
-    //     <button className="contacts__button">Add contact</button>
-    //   </form>
-    // </ContactsWrapp>
   );
 }

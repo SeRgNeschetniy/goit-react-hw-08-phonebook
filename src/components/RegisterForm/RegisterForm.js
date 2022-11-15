@@ -39,7 +39,7 @@ export default function RegisterForm() {
         <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
           <BookOnlineOutlinedIcon />
         </Avatar>
-        <Typography component="h1" variant="h5">
+        <Typography component="h4" variant="h4">
           Create your account
         </Typography>
         <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
@@ -85,13 +85,13 @@ export default function RegisterForm() {
           >
             Create account
           </Button>
-          <Grid container justifyContent="flex-end">
+          {/* <Grid container justifyContent="flex-end">
             <Grid item>
               <Link href="#" variant="body2">
                 Already have an account? Sign in
               </Link>
             </Grid>
-          </Grid>
+          </Grid> */}
         </Box>
       </Box>
     </Container>
