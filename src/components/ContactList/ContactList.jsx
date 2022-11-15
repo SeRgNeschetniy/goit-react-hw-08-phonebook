@@ -1,6 +1,12 @@
 //import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { removeContact } from 'redux/contacts/operations';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemText from '@mui/material/ListItemText';
+import DeleteIcon from '@mui/icons-material/Delete';
+import IconButton from '@mui/material/IconButton';
+import Grid from '@mui/material/Grid';
 
 export default function PhoneBookList({ items }) {
   const dispatch = useDispatch();
@@ -10,25 +16,29 @@ export default function PhoneBookList({ items }) {
   };
 
   const elements = items?.map(({ name, number, id }) => {
+    const itemText = `${name}: ${number}`;
     return (
-      <li key={id}>
-        {name}: {number}{' '}
-        <button type="submit" onClick={() => onRemoveContact(id)}>
-          Delete
-        </button>
-      </li>
+      <ListItem
+        key={id}
+        sx={{ bgcolor: '#f1f3f9', mb: 2 }}
+        secondaryAction={
+          <IconButton
+            edge="end"
+            aria-label="delete"
+            type="submit"
+            onClick={() => onRemoveContact(id)}
+          >
+            <DeleteIcon />
+          </IconButton>
+        }
+      >
+        <ListItemText primary={itemText} />
+      </ListItem>
     );
   });
-  return <ul>{elements}</ul>;
+  return (
+    <Grid item sx={{ width: '100%' }}>
+      <List>{elements}</List>
+    </Grid>
+  );
 }
-
-// PhoneBookList.propTypes = {
-//   items: PropTypes.arrayOf(
-//     PropTypes.shape({
-//       name: PropTypes.string.isRequired,
-//       number: PropTypes.string.isRequired,
-//       id: PropTypes.string.isRequired,
-//     })
-//   ),
-//   removeContact: PropTypes.func.isRequired,
-// };

@@ -1,8 +1,12 @@
 import PropTypes from 'prop-types';
 import { nanoid } from 'nanoid';
-import { FilterWrapp } from './Filter.module';
 import { setFilter } from 'redux/filter/slice';
 import { useDispatch } from 'react-redux';
+import SearchIcon from '@mui/icons-material/Search';
+import Input from '@mui/material/Input';
+import InputLabel from '@mui/material/InputLabel';
+import InputAdornment from '@mui/material/InputAdornment';
+import FormControl from '@mui/material/FormControl';
 
 export default function Filter({ filter }) {
   const dispatch = useDispatch();
@@ -14,16 +18,21 @@ export default function Filter({ filter }) {
 
   const filterID = nanoid();
   return (
-    <FilterWrapp>
-      <label htmlFor={filterID}>Find contacts by name</label>
-      <input
+    <FormControl fullWidth sx={{ m: 1 }}>
+      <InputLabel htmlFor={filterID}>Find contacts by name</InputLabel>
+      <Input
         id={filterID}
         type="text"
         name="filter"
         onChange={handleChange}
         value={filter}
+        startAdornment={
+          <InputAdornment position="start">
+            <SearchIcon />
+          </InputAdornment>
+        }
       />
-    </FilterWrapp>
+    </FormControl>
   );
 }
 

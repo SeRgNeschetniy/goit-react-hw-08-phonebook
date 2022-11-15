@@ -1,4 +1,6 @@
 import Container from '@mui/material/Container';
+import Alert from '@mui/material/Alert';
+import Box from '@mui/material/Box';
 
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -23,19 +25,26 @@ export default function Contacts() {
   }, [dispatch]);
 
   return (
-    <Container>
-      <div className="block">
+    <Container component="main" maxWidth="xs">
+      <Box
+        sx={{
+          marginTop: 8,
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+        }}
+      >
+        {error && <Alert severity="error">Oops, something went wrong</Alert>}
+
         <FormAddContacts />
-      </div>
-      <div className="block">
-        <h2>Contacts</h2>
+
+        <h2>Contacts List</h2>
         <Filter filter={filter} />
         {!isLoading && contacts.length > 0 && (
           <PhoneBookList items={contacts} />
         )}
         {isLoading && <p>...loading</p>}
-        {error && <p>oops, something went wrong</p>}
-      </div>
+      </Box>
     </Container>
   );
 }
